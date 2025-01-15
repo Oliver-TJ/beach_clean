@@ -1,6 +1,7 @@
 import React from "react";
-import { TextContainer, BackgroundWrapper, IgContainer } from "../components/home";
+import { TextContainer, BackgroundWrapper, IgContainer, HeaderBox } from "../components/home";
 import { InstagramEmbed } from "react-social-media-embed";
+import RubbishCounter  from "../components/rubbish_counter"
 import "./home.css";
 
 const JoinButton = () => {
@@ -54,11 +55,14 @@ const Home = () => {
         <div>
             <BackgroundWrapper />
             <TextContainer>
-
-                <h1>Welcome to the official webpage of the Newcastle Beach Clean Society</h1>
+                <RubbishCounter/>
+                <br/>
                 <IgContainer>
                     <div style={{ padding: '2rem' }}>
-                        <h2>About Us</h2>
+                        <HeaderBox>
+                            <h2>About Us</h2>
+                        </HeaderBox>
+
 
                         <p>
                             Welcome to the Beach Cleaning Society!
@@ -78,8 +82,6 @@ const Home = () => {
                             Join us and help make a real difference to our coastal environment!
                         </p>
                         <br/>
-                        <br/>
-                        <br/>
 
                         <JoinButton />
                     </div>
@@ -88,8 +90,13 @@ const Home = () => {
                     </div>
                 </IgContainer>
 
+                <br/>
+                <br/>
 
-                <h2>New content</h2>
+                <HeaderBox>
+                    <h2>New content</h2>
+                </HeaderBox>
+
 
                 <p>
                     Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah

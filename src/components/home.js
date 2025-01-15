@@ -10,6 +10,18 @@ export const NavbarContainer = styled.nav`
     color: #fff;
 `;
 
+export const HeaderBox = styled.div`
+  display: flex;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  font-size: 15px;
+  color: #CBBD93;
+  background: #003a65;
+  box-shadow: 6px 6px 0 #CBBD93;
+  transform: skewX(-15deg);
+  border: none;
+`;
+
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,12 +34,18 @@ export const TextContainer = styled.div`
   padding: 1rem;
   max-width: 70%;
   margin: 0 auto;
+  border-left: 5px #CBBD93;
+  border-right: 1rem #CBBD93;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export const IgContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export const BackgroundWrapper = styled.div`
