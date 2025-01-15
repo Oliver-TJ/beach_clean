@@ -20,10 +20,10 @@ const Navbar = () => {
             </Logo>
             <NavLinks>
                 <NavLink>
-                    <Link to="/">Home</Link>
+                    <Link to="/"><b>Home</b></Link>
                 </NavLink>
                 <NavLink>
-                    <Link to="/about">About</Link>
+                    <Link to="/about"><b>About Us</b></Link>
                 </NavLink>
             </NavLinks>
         </NavbarContainer>
