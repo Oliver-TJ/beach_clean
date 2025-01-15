@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const RubbishCounter = () => {
-    const rubbishCollected = 53.46;
-
     return (
         <Container>
             <Title>Amount Cleaned:</Title>
@@ -16,8 +14,10 @@ const RubbishCounter = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 99%;
+  width: 90%;
   background-color: #003a65;
+  box-shadow: 6px 6px 0 #CBBD93;
+  transform: skewX(-15deg);
   color: #fff;
   text-align: center;
   padding: 20px;
