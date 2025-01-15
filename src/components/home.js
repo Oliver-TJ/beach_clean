@@ -13,7 +13,9 @@ export const NavbarContainer = styled.nav`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items:center;
+  justify-content: center;
+  opacity: 96%;
+  align-items: center;
   text-align: center;
   background-color: cornflowerblue;
   color: white;
@@ -21,6 +23,11 @@ export const TextContainer = styled.div`
   max-width: 70%;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+export const IgContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const BackgroundWrapper = styled.div`

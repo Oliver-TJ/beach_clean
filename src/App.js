@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import About from "./templates/about";
 import Home from "./templates/home"
+import Footer from "./templates/footer";
 import LogoImg from "./assets/NUBCS_Logo.png"
 
 const Navbar = () => {
@@ -20,10 +21,10 @@ const Navbar = () => {
             </Logo>
             <NavLinks>
                 <NavLink>
-                    <Link to="/"><b>Home</b></Link>
+                    <Link to="/"><b>About Us</b></Link>
                 </NavLink>
                 <NavLink>
-                    <Link to="/about"><b>About Us</b></Link>
+                    <Link to="/about"><b>What's on?</b></Link>
                 </NavLink>
             </NavLinks>
         </NavbarContainer>
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
         </Routes>
+        <Footer/>
     </Router>
   );
 }
