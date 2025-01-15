@@ -8,11 +8,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import About from "./templates/about";
 import Home from "./templates/home"
+import LogoImg from "./assets/NUBCS_Logo.png"
 
 const Navbar = () => {
     return (
         <NavbarContainer>
-            <Logo>Beach Clean Society</Logo>
+            <Logo>
+                <Link to="/">
+                    <img src={LogoImg} alt="Logo" />
+                </Link>
+            </Logo>
             <NavLinks>
                 <NavLink>
                     <Link to="/">Home</Link>

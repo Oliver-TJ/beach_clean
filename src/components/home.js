@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 
 export const NavbarContainer = styled.nav`
@@ -6,13 +5,20 @@ export const NavbarContainer = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #282c34;
+    background-color: #003a65;
     color: #fff;
 `;
 
 export const Logo = styled.div`
-    font-size: 1.5rem;
-    font-weight: bold;
+    img {
+      height: 4em;
+      width: auto;
+      transition: 0.3s ease;
+      
+      &:hover {
+        opacity: 70%;
+      }
+    }
 `;
 
 export const NavLinks = styled.ul`
