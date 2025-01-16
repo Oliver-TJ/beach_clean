@@ -5,7 +5,7 @@ const RubbishCounter = () => {
     return (
         <Container>
             <Title>Amount Cleaned:</Title>
-            <CounterContainer><Counter>5</Counter><Counter>3</Counter><Point>·</Point><Counter>4</Counter><Counter>6</Counter><Title>kg</Title>
+            <CounterContainer><Counter>8</Counter><Counter>3</Counter><Point>·</Point><Counter>0</Counter><Counter>0</Counter><Title>kg</Title>
             </CounterContainer>
 
         </Container>

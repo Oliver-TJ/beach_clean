@@ -22,7 +22,32 @@ export const HeaderBox = styled.div`
   border: none;
 `;
 
+export const Section = styled.div`
+  padding: 1em;
+  text-align: center;
+`;
+
+export const DescDiv = styled.div`
+  font-size: 1.2rem; 
+  color: white; 
+  line-height: 1.8;
+  margin-bottom: 30px;
+`;
+
+
+export const TextDiv = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column;
+  }
+`;
+
+
 export const TextContainer = styled.div`
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,6 +103,29 @@ export const Logo = styled.div`
       }
     }
 `;
+
+export const CoverImg = styled.div`
+    img {
+      height: 20em;
+      width: auto;
+      border: 1em solid #CBBD93;
+      border-radius: 2em;
+      margin: 3em;
+      box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
+      
+      @media only screen and (max-width: 900px) {
+        height: 15em;
+        border: 0.5em solid #CBBD93;
+        border-radius: 1em;
+      }
+      
+      @media only screen and (max-width: 400px) {
+        height: 10em;
+        border: 0.25em solid #CBBD93;
+        border-radius: 0.5em;
+      }
+    }
+`
 
 export const NavLinks = styled.ul`
   display: flex;
