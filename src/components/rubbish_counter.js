@@ -5,8 +5,9 @@ const RubbishCounter = () => {
     return (
         <Container>
             <Title>Amount Cleaned:</Title>
-            <Counter>5</Counter><Counter>3</Counter><Point>·</Point><Counter>4</Counter><Counter>6</Counter>
-            <Title>kg</Title>
+            <CounterContainer><Counter>5</Counter><Counter>3</Counter><Point>·</Point><Counter>4</Counter><Counter>6</Counter><Title>kg</Title>
+            </CounterContainer>
+
         </Container>
     );
 };
@@ -21,6 +22,10 @@ const Container = styled.div`
   color: #fff;
   text-align: center;
   padding: 20px;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    transform: skewX(0deg);
+  }
 `;
 
 const Title = styled.div`
@@ -52,5 +57,10 @@ const Counter = styled.div`
   background-color: black;
   color: white;
 `;
+
+const CounterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 export default RubbishCounter;

@@ -2,7 +2,8 @@ import './App.css';
 import { NavbarContainer,
          Logo,
          NavLinks,
-         NavLink
+         NavLink,
+         MenuIcon
 } from "./components/home"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -10,8 +11,15 @@ import About from "./templates/about";
 import Home from "./templates/home"
 import Footer from "./templates/footer";
 import LogoImg from "./assets/NUBCS_Logo.png"
+import React, { useState } from "react";
 
 const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
     return (
         <NavbarContainer>
             <Logo>
@@ -19,7 +27,10 @@ const Navbar = () => {
                     <img src={LogoImg} alt="Logo" />
                 </Link>
             </Logo>
-            <NavLinks>
+            <MenuIcon onClick={toggleMenu}>
+                ☰
+            </MenuIcon>
+            <NavLinks isMenuOpen={isMenuOpen}>
                 <NavLink>
                     <Link to="/"><b>About Us</b></Link>
                 </NavLink>

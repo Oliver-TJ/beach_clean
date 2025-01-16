@@ -82,13 +82,12 @@ const Home = () => {
                             Join us and help make a real difference to our coastal environment!
                         </p>
                         <br/>
-
-                        <JoinButton />
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <InstagramEmbed url="https://www.instagram.com/p/DEr90YfTyfe/" width={328}/>
                     </div>
                 </IgContainer>
+                <JoinButton />
 
                 <br/>
                 <br/>
