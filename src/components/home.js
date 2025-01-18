@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import backgroundImage from "../assets/bg_image.jpg";
+import { createGlobalStyle } from "styled-components";
 
 export const NavbarContainer = styled.nav`
     display: flex;
@@ -125,7 +126,17 @@ export const CoverImg = styled.div`
         border-radius: 0.5em;
       }
     }
-`
+`;
+
+export const FontStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..700;1,100..700&display=swap');
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 export const NavLinks = styled.ul`
   display: flex;

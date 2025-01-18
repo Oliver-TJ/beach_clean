@@ -7,7 +7,8 @@ import {
     Section,
     TextDiv,
     DescDiv,
-    CoverImg
+    CoverImg,
+    FontStyle
 } from "../components/home";
 import { InstagramEmbed } from "react-social-media-embed";
 import RubbishCounter  from "../components/rubbish_counter"
@@ -73,7 +74,7 @@ const Home = () => {
                             <h2>About Us</h2>
                         </HeaderBox>
 
-
+                        <FontStyle/>
                         <p>
                             Welcome to the Beach Cleaning Society Website!
                             We are a passionate group of environmental activists dedicated to preserving
