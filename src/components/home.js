@@ -41,7 +41,7 @@ export const TextDiv = styled.div`
   display: flex;
   flex-direction: row;
   
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1400px) {
     flex-direction: column;
   }
 `;
@@ -113,6 +113,12 @@ export const CoverImg = styled.div`
       border-radius: 2em;
       margin: 3em;
       box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
+      
+      @media only screen and (max-width: 2000px) {
+        height: 17em;
+        border: 0.7em solid #CBBD93;
+        border-radius: 1.5em;
+      }
       
       @media only screen and (max-width: 900px) {
         height: 15em;
