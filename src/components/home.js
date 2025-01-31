@@ -186,3 +186,131 @@ export const MenuIcon = styled.div`
     display: block;
   }
 `;
+
+export const EventLink = styled.a`
+  color: #CBBD93;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #003a65;
+    text-decoration: none;
+    background-color: #CBBD93;
+    padding: 1px 2px;
+    border-radius: 4px;
+  }
+`;
+
+export const PageHeader = styled.h1`
+  color: #CBBD93;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 2rem 0;
+  padding: 1rem;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0, 58, 101, 0.5);
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: #003a65;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    
+    &::after {
+      width: 80%;
+    }
+  }
+`;
+
+
+// Add to components/home.js
+export const EventCardContainer = styled.div`
+  background: #003a65;
+  border: 2px solid #CBBD93;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 6px 6px 0 #CBBD93;
+  transform-style: preserve-3d;
+  width: 90%;
+  max-width: 800px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(0, 58, 101, 0.1);
+    transform: skewX(-5deg) skewY(-1deg);
+    z-index: -1;
+  }
+
+  @media (max-width: 900px) {
+    &::before {
+      transform: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    width: 95%;
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+`;
+
+export const EventHeader = styled(HeaderBox)`
+  margin: -2rem auto 1.5rem;
+  width: fit-content;
+  font-size: 1.3rem;
+  transform: skewX(-10deg);
+  padding: 1rem 2.5rem;
+  
+  h3 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 768px) {
+    margin: -1.5rem auto 1rem;
+    padding: 0.8rem 2rem;
+    transform: skewX(-8deg);
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+export const EventDate = styled.div`
+  color: #CBBD93;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  text-align: center;
+`;
+
+export const EventDescription = styled(DescDiv)`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 0 1.5rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+    font-size: 1rem;
+  }
+`;
