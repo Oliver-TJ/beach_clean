@@ -13,6 +13,7 @@ export const NavbarContainer = styled.nav`
 
 export const HeaderBox = styled.div`
   display: flex;
+  justify-content: space-evenly;
   padding: 1rem 3rem;
   text-decoration: none;
   font-size: 15px;

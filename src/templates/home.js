@@ -96,17 +96,12 @@ const Home = () => {
                         <p>
                             Click the button at the bottom of the page to become a member!
                         </p>
-                        <br/>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <InstagramEmbed url="https://www.instagram.com/p/DEr90YfTyfe/" width={328}/>
                     </div>
 
                 </IgContainer>
-
-
-                <br/>
-                <br/>
 
                 <Section>
                     <TextDiv>
