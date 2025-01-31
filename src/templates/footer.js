@@ -2,7 +2,10 @@ import React from "react";
 import {
     FooterContainer,
     InstagramIcon,
-    EmailIcon, SocialContainer, SocialLink,
+    EmailIcon,
+    SocialContainer,
+    SocialLink,
+    GitHubIcon
 } from "../components/footer";
 
 
@@ -24,6 +27,12 @@ const Footer = () => {
                     aria-label="Email"
                 >
                     <EmailIcon />
+                </SocialLink>
+                <SocialLink
+                    href="https://github.com/Oliver-TJ/beach_clean"
+                    aria-label="Github"
+                    >
+                    <GitHubIcon />
                 </SocialLink>
             </SocialContainer>
             <i>&copy; {new Date().getFullYear()} Oliver Taite Jupp. All rights reserved.</i>
