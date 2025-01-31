@@ -16,7 +16,7 @@ import "./home.css";
 const events = [
     {
         title: "Hope not Heat Beach Clean",
-        date: "22nd February, 2025",
+        date: "1pm, 22nd February, 2025",
         description: (
             <>
                 Join us for our biggest cleanup of the year! We'll tackle Cullercoats Beach, Long Sands,
@@ -31,7 +31,7 @@ const events = [
                 <br/>
                 <br/>
 
-                <i style={{ fontSize: '1rem' }}>Be sure to check our <EventLink
+                <i style={{ fontSize: '1rem' }}>Be sure to check out our <EventLink
                     href="https://www.instagram.com/beachcleaningsociety__ncl"
                     target="_blank"
                     rel="noopenet noreferrer"
