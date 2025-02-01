@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /$
+Allow: /whats-on
+Allow: /assets/
+
+Disallow: /admin
+Disallow: /api
+Disallow: /static/
+Disallow: /search
+Disallow: /*?*
+Disallow: /.aws/
+Disallow: /.amplify/
+Disallow: /amplify-admin
