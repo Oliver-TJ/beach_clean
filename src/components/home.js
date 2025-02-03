@@ -127,9 +127,15 @@ export const CoverImg = styled.div`
         border-radius: 1em;
       }
       
-      @media only screen and (max-width: 400px) {
+      @media only screen and (max-width: 600px) {
         height: 10em;
         border: 0.25em solid #CBBD93;
+        border-radius: 1em;
+      }
+      
+      @media only screen and (max-width: 400px) {
+        height: 5em;
+        border: 0.2em solid #CBBD93;
         border-radius: 0.5em;
       }
     }
@@ -312,5 +318,16 @@ export const EventDescription = styled(DescDiv)`
   @media (max-width: 768px) {
     padding: 0 0.5rem;
     font-size: 1rem;
+  }
+`;
+
+export const AboutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  
+  @media (max-width: 778px) {
+    padding: 0.25em;
   }
 `;

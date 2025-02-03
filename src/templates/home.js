@@ -8,7 +8,8 @@ import {
     TextDiv,
     DescDiv,
     CoverImg,
-    FontStyle
+    FontStyle,
+    AboutContainer
 } from "../components/home";
 import { JoinButton } from "../components/join_button";
 import { InstagramEmbed } from "react-social-media-embed";
@@ -64,8 +65,10 @@ const Home = () => {
                         <CoverImg>
                             <img src={CoverImage}  alt="Beach clean committee"/>
                         </CoverImg>
-                        <div>
-                            <HeaderBox><b>Our Story</b></HeaderBox>
+                        <AboutContainer>
+                            <HeaderBox>
+                                <h2>Our Story</h2>
+                            </HeaderBox>
                             <DescDiv>
                                 <br/>
                                 It all began with a simple yet powerful idea: to protect the stunning coastline of Tyne and Wear
@@ -80,7 +83,7 @@ const Home = () => {
                                 perfect mix of purpose and fun.
                             </DescDiv>
                             <JoinButton/>
-                        </div>
+                        </AboutContainer>
                     </TextDiv>
                 </Section>
             </TextContainer>

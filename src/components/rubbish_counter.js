@@ -30,6 +30,7 @@ const RubbishCounter = () => {
                 <Title>kg</Title>
             </CounterContainer>
 
+
             <Tooltip $isHovered={isHovered}>
                 <h3>Latest Cleanup</h3>
                 <p>📍 {cleanupData.latestEvent.location}</p>
@@ -90,6 +91,11 @@ const Tooltip = styled.div.attrs(props => ({
     margin: 0.4rem 0;
     transition: inherit;
   }
+  
+  @media only screen and (max-width: 900px) {
+    transform: skewX(0deg);
+    left: 20%;
+  }
 `;
 
 const Container = styled.div`
@@ -102,10 +108,12 @@ const Container = styled.div`
   color: #fff;
   text-align: center;
   padding: 20px;
-  transition: all 0.3s ease;
   
   @media only screen and (max-width: 900px) {
     flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 30px;
     transform: skewX(0deg);
   }
 `;
@@ -116,6 +124,10 @@ const Title = styled.div`
   letter-spacing: 1px;
   margin-right: 1rem;
   padding: 1rem;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
 `;
 
 const Point = styled.div`
@@ -138,6 +150,7 @@ const Counter = styled.div`
   border: #CBBD93;
   background-color: black;
   color: white;
+  
 `;
 
 const CounterContainer = styled.div`
