@@ -21,13 +21,12 @@ const RubbishCounter = () => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <CounterContainer>
-                <Title>Amount Cleaned:</Title>
+                <Title>Amount Cleaned (kg):</Title>
                 <Counter>8</Counter>
                 <Counter>3</Counter>
                 <Point>·</Point>
                 <Counter>0</Counter>
                 <Counter>0</Counter>
-                <Title>kg</Title>
             </CounterContainer>
 
 
