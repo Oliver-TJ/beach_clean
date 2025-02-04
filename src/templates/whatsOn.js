@@ -1,4 +1,3 @@
-// events.js
 import React from "react";
 import {
     TextContainer,

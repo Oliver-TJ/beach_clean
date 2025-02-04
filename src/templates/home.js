@@ -20,8 +20,6 @@ import RubbishCounter  from "../components/rubbish_counter"
 import "./home.css";
 import CoverImage from "../assets/cover_img.jpg"
 
-// New styled component for content sections
-
 
 const Home = () => {
     return (
