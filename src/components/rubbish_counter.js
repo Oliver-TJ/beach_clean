@@ -107,6 +107,7 @@ const Container = styled.div`
   color: #fff;
   text-align: center;
   padding: 20px;
+  z-index: 100;
   
   @media only screen and (max-width: 900px) {
     flex-direction: column;
