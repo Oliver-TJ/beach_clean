@@ -58,7 +58,7 @@ const Home = () => {
 
                     <ResponsiveInstagramWrapper>
                         <InstagramEmbed
-                            url="https://www.instagram.com/p/DEr90YfTyfe/"
+                            url="https://www.instagram.com/beachcleaningsociety__ncl"
                             width="100%"
                             style={{ maxWidth: '328px' }}
                         />
