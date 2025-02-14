@@ -41,31 +41,13 @@ const events = [
         )
     },
     {
-        title: "Keep Jesmond Clean (non-society event)",
-        date: "11am, 8th February, 2025",
+        title: "New merchandise",
+        date: "tbd",
         description: (
             <>
-                Join the community-driven effort to maintain Jesmond's beauty! On 8/02/2025, starting at 11:00 am,
-                volunteers will gather at Jesmond Library for a two-hour litter pick. All necessary
-                equipment will be provided on a walk through Jesmond, collecting litter to keep our neighborhood pristine.
-                This event is organized by <EventLink
-                    href="https://www.facebook.com/KeepJesmondClean/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >Keep Jesmond Clean</EventLink>, a local action group dedicated to reducing waste
-                and promoting recycling in partnership with residents, businesses, and institutions.
-
-                <br/>
-                <br/>
-
-                <i style={{ fontSize: '1rem' }}>
-                    For more information, visit <EventLink
-                        href="https://jesmondlibrary.org/event/keep-jesmond-clean-litterpick/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Jesmond Library's event page</EventLink>.
-                    Let's come together to make a tangible difference in our community!
-                </i>
+                We are currently working on designs for NUBCS official merchandise! We will be offering
+                quarter-zips and trackies available for Beach Clean Society members so keep checking our whatsapp and
+                socials for updates on when we release designs.
             </>
         )
     },

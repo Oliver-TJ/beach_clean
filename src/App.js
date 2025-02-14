@@ -8,9 +8,9 @@ import { NavbarContainer,
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import WhatsOn from "./templates/whatsOn";
-import Home from "./templates/home"
+import Home from "./templates/home";
 import Footer from "./templates/footer";
-import LogoImg from "./assets/NUBCS_Logo.png"
+import LogoImg from "./assets/NUBCS_Logo.png";
 import React, { useState } from "react";
 
 const Navbar = () => {
