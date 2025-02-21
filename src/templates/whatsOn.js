@@ -33,7 +33,7 @@ const events = [
                 <i style={{ fontSize: '1rem' }}>Be sure to check out our <EventLink
                     href="https://www.instagram.com/beachcleaningsociety__ncl"
                     target="_blank"
-                    rel="noopenet noreferrer"
+                    rel="noopener noreferrer"
                 >
                     Instagram 📷
                 </EventLink> to stay updated on this event.</i>
@@ -42,12 +42,27 @@ const events = [
     },
     {
         title: "New merchandise",
-        date: "tbd",
+        date: "Due 1st March, 2025",
         description: (
             <>
-                We are currently working on designs for NUBCS official merchandise! We will be offering
-                quarter-zips and trackies available for Beach Clean Society members so keep checking our whatsapp and
-                socials for updates on when we release designs.
+                <b>Our NUBCS official merchandise is now live! 🎉</b> Show your pride with our new quarter-zips and trackies,
+                available exclusively for Beach Clean Society members. <br/>
+                Applications close March 1,
+                2025 — don’t miss your chance to grab these limited-edition items! Check our
+                WhatsApp and socials for sizing, pricing, and order details. Join the squad, rep your society,
+                and help us keep our beaches clean! 🌊✨
+
+                <br/>
+                <br/>
+
+                <b style={{ fontSize: "1.5rem" }}>  <EventLink
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSeMUwVgvg3sGusqX0x9rnKJUWuWZcCSicGGX6aE-eUsBooSSQ/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Get your merch here!
+                </EventLink>
+                </b>
             </>
         )
     },
