@@ -5,13 +5,13 @@ const RubbishCounter = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const cleanupData = {
-        total: "83.00",
+        total: "140.50",
         latestEvent: {
-            location: "Sandhaven Beach to Long Beach (South Shields)",
-            date: "10-11-2024",
-            attendees: 10,
-            collected: "53kg",
-            distance: "1.6km"
+            location: "Cullercoats to King Edwards Bay",
+            date: "02-22-2025",
+            attendees: 24,
+            collected: "57.5kg",
+            distance: "2.25km"
         }
     };
 
@@ -22,10 +22,11 @@ const RubbishCounter = () => {
         >
             <CounterContainer>
                 <Title>Amount Cleaned (kg):</Title>
-                <Counter>8</Counter>
-                <Counter>3</Counter>
-                <Point>·</Point>
+                <Counter>1</Counter>
+                <Counter>4</Counter>
                 <Counter>0</Counter>
+                <Point>·</Point>
+                <Counter>5</Counter>
                 <Counter>0</Counter>
             </CounterContainer>
 

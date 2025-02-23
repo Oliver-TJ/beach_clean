@@ -82,10 +82,98 @@ const events = [
                 <i style={{ fontSize: '1rem' }}>P.S. Bonus points for creative themes — think fun costumes or crazy pub routes!</i>
             </>
         )
+    },
+    {
+        title: "Hope not Heat: Climate Comedy with Matt Winning",
+        date: "5.30 pm, 25th February, 2025",
+        description: (
+            <>
+                Stand-up comedy set by climate scientist Matt Winning, author of 'Hot Mess', part of the{' '}
+                <EventLink
+                    href="https://conferences.ncl.ac.uk/hopenotheat2025/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Hope Not Heat 2025
+                </EventLink> series. Curtis Auditorium, Newcastle University. Free registration required.
+                <br/>
+                <br/>
+                <EventLink
+                    href="https://www.ncl.ac.uk/events/noticeboard/item/250225mattwinning.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Book tickets (available from 18th Feb)
+                </EventLink>
+            </>
+        )
+    },
+    {
+        title: "Hope not Heat: Carbon Capture in Soils Talk",
+        date: "2.30-3.30 pm, 26th February, 2025",
+        description: (
+            <>
+                Explore how soil science could combat climate change with One Planet. Ages 16+.
+                <br/>
+                <i>Stage 2, Northumbria SU</i>
+                <br/>
+                <br/>
+                <EventLink
+                    href="https://conferences.ncl.ac.uk/media/sites/conferencewebsites/hopenotheat2025/Marron.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    More about Marron talk
+                </EventLink>
+            </>
+        )
+    },
+    {
+        title: "Hope not Heat: Film Screening: '2040' Documentary",
+        date: "5.15 pm, 26th February, 2025",
+        description: (
+            <>
+                Join us for Damon Gameau's hopeful vision for sustainability. Ages 16+.
+                <br/>
+                <i>Stage 2, Northumbria SU</i>
+                <br/>
+                <br/>
+                <EventLink
+                    href="https://mynsu.co.uk/events/id/1339-2040-film-screening"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Reserve free ticket
+                </EventLink>
+            </>
+        )
+    },
+    {
+        title: "Hope not Heat: Campus Climate Action Day",
+        date: "26th February, 2025",
+        description: (
+            <>
+                University members-only events:
+                <ul>
+                    <li>2.00-3.30pm: Model UN COP-style debate</li>
+                    <li>3.30-4.15pm: Climate anxiety discussion</li>
+                    <li>4.15-5.00pm: Plant-Based Universities Q&A</li>
+                </ul>
+                <i>Merz Court, Newcastle University</i>
+                <br/>
+                <EventLink
+                    href="https://conferences.ncl.ac.uk/hopenotheat2025/joinagroup/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    See group details
+                </EventLink>
+            </>
+        )
     }
 ];
 
-const EventCard = ({ title, date, description }) => (
+export const EventCard = ({ title, date, description }) => (
     <EventCardContainer>
         <EventHeader>
             <h3>{title}</h3>
