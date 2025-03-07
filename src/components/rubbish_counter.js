@@ -25,9 +25,6 @@ const RubbishCounter = () => {
                 <Counter>1</Counter>
                 <Counter>4</Counter>
                 <Counter>0</Counter>
-                <Point>·</Point>
-                <Counter>5</Counter>
-                <Counter>0</Counter>
             </CounterContainer>
 
 
