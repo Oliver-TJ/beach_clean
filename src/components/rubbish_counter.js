@@ -7,11 +7,11 @@ const RubbishCounter = () => {
     const cleanupData = {
         total: "140.50",
         latestEvent: {
-            location: "Cullercoats to King Edwards Bay",
-            date: "02-22-2025",
-            attendees: 24,
-            collected: "57.5kg",
-            distance: "2.25km"
+            location: "Leazes Park, Newcastle",
+            date: "05-08-2025",
+            attendees: 13,
+            collected: "13kg",
+            distance: "1.3km"
         }
     };
 
@@ -23,8 +23,8 @@ const RubbishCounter = () => {
             <CounterContainer>
                 <Title>Amount Cleaned (kg):</Title>
                 <Counter>1</Counter>
+                <Counter>5</Counter>
                 <Counter>4</Counter>
-                <Counter>0</Counter>
             </CounterContainer>
 
 
