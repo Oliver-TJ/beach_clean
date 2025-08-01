@@ -8,11 +8,69 @@ import {
     EventCardContainer,
     EventHeader,
     EventDescription,
-    EventDate
+    EventDate, CoverImg
 } from "../components/home";
 import "./home.css";
+import GroupPhoto from "../assets/group_photo.jpg";
 
 const events = [
+    {
+        title: "Beach Clean Success!",
+        date: "22nd February 2025",
+        description: (
+            <>
+                We’re thrilled to share that our recent beach clean-up was a massive success!
+                Together, 24 incredible volunteers removed <b>57.5kg of litter</b> from our beautiful coastline,
+                stretching from Cullercoats to King Edwards Bay. <i>From plastic waste to dumped wiring,
+                every piece collected helps protect marine life and keep our beaches pristine.</i>
+                <br/>
+                <br/>
+                <b style={{ color: "#CBBD93", fontSize: "1.5rem"}}>🌟 A Heartfelt Thank You! 🌟</b><br/>
+                To everyone who joined us—whether you’re a regular volunteer or first-timer—your energy and dedication
+                made this event! Special thanks to <b><EventLink
+                href="https://conferences.ncl.ac.uk/hopenotheat2025/home/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Hope not Heat
+            </EventLink></b> and <b><EventLink
+                href="https://www.sas.org.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Surfers Against Sewage
+            </EventLink></b> for their
+                support, and to all who braved the February chill to make a difference.
+                <br/>
+                <br/>
+                <b style={{ color: "#CBBD93", fontSize: "1.5rem"}}>
+                    🌍 Join the Hope not Heat Events! 🌍
+                </b>
+                <br/>
+                Our beach clean was part of the inspiring Hope not Heat initiative,
+                which continues with fantastic climate-focused events this week (22nd to 26th February). Check out what’s coming up on their <b><EventLink
+                href="https://conferences.ncl.ac.uk/hopenotheat2025/programme/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                webpage
+            </EventLink></b> and support them by turning up!
+
+                <br/>
+                <br/>
+                <br/>
+                <div style={{ textAlign: "center" }}>
+                    <CoverImg>
+                        <img src={GroupPhoto} alt={"22nd February Beach Clean crew"} />
+                    </CoverImg>
+                    <i style={{ fontSize: "0.9rem", color: "#CBBD93"}}>Huge thank you to everyone who came!!</i>
+                </div>
+                <br/>
+                <i>With thanks,</i><br/><b>The Beach Cleaning Society</b><br/>
+                <i>In partnership with Hope not Heat & Surfers Against Sewage</i>
+            </>
+        )
+    },
     {
         title: "Hope not Heat Beach Clean",
         date: "1pm, 22nd February, 2025",
