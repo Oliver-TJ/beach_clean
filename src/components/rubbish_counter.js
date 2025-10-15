@@ -7,13 +7,13 @@ const RubbishCounter = () => {
     const [displayValue, setDisplayValue] = useState("0.0");
     
     const cleanupData = {
-        total: "153.5",
+        total: "176.5",
         latestEvent: {
-            location: "Leazes Park, Newcastle",
-            date: "05-08-2025",
-            attendees: 13,
-            collected: "13kg",
-            distance: "1.3km"
+            location: "Long Sands Beach, Tynemouth",
+            date: "10-11-2025",
+            attendees: 58,
+            collected: "23kg",
+            distance: "2.6km"
         }
     };
 
