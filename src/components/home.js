@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import backgroundImage from "../assets/bg_image.jpg";
 import { createGlobalStyle } from "styled-components";
+import YouTube from "react-youtube";
 
 const colors = {
     primary: "#003a65",
@@ -443,4 +444,33 @@ export const DescDivs = styled(DescDiv)`
       margin: 1.5rem 0;
     }
   `}
+`;
+
+
+export const YouTubePlayerWrapper = styled.div`
+  position: relative;
+  padding-top: 56.25%;
+  width: 100%;
+  margin: 1rem auto;
+  background-color: #000;
+
+  border: 4px solid ${colors.accent}; 
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 ${colors.accent}; 
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    border-width: 3px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 ${colors.accent};
+  }
+`;
+
+
+export const StyledYouTube = styled(YouTube)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
