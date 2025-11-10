@@ -13,20 +13,21 @@ import {
     ResponsiveInstagramWrapper,
     JoinButtonWrapper,
     DescDivs,
-    EventLink
+    EventLink,
+    YouTubePlayerWrapper, // 1. Import the new wrapper
+    StyledYouTube         // 2. Import the new styled component
 } from "../components/home";
 import { JoinButton } from "../components/join_button";
 import { InstagramEmbed } from "react-social-media-embed";
 import RubbishCounter  from "../components/rubbish_counter"
 import "./home.css";
 import CoverImage from "../assets/cover_img.jpg"
-import Diving from "../assets/diving.jpg";
 import {EventCard} from "./whatsOn";
 
 const events = [
     {
         title: "Our New Partners",
-        date: "1st August 2025",
+        date: "10th November 2025",
         description: (
             <>
                 You’ve cleaned up the northeast coast – now it’s time to take your ocean impact global 🌊
@@ -43,14 +44,43 @@ const events = [
                 <br/>
                 <br/>
 
-
                 <div style={{ textAlign: "center" }}>
-                    <CoverImg>
-                        <img src={Diving} alt={"22nd February Beach Clean crew"} />
-                    </CoverImg>
+                    <YouTubePlayerWrapper>
+                        <StyledYouTube
+                            videoId="n2q2ZGbZ7M0"
+                            opts={{
+                                height: '100%',
+                                width: '100%',
+                                playerVars: {
+                                    autoplay: 1,
+                                    loop: 1
+                                }
+                            }}
+                        />
+                    </YouTubePlayerWrapper>
                     <i style={{ fontSize: "0.9rem", color: "#CBBD93"}}>GVI Travel offer environmental protection and community programs</i>
                 </div>
                 <br/>
+                <br/>
+                We've teamed up with GVI to offer conservation opportunities to our members! 
+                We want to share a bit more about who they are, what they do and why we've partnered with them 🌊
+                <br/><br/>
+                For over 25 years, GVI has been an award-winning leader in impactful field training, empowering a global
+                 alumni network of over 40,000 people 🌎
+                <br/><br/>
+                They specialise in helping students gain the hands-on skills needed to build impact-driven careers and 
+                land their dream role in conservation. You could live at one of GVI's remote research hubs and take part 
+                in vital conservation activities every day, working alongside local partners on projects focused on sustainable 
+                conservation and community development.
+                <br/><br/>
+                Their programs are highly flexible, and start at just £1645. With durations ranging from 2 to 24 weeks, 
+                they're a perfect fit for a summer break, placement years, or post-graduation plans. Participants can join 
+                GVI in incredible locations like South Africa, Seychelles, Costa Rica, Madagascar, Peru, and beyond!
+                <br/><br/>
+                As part of our partnership, they're offering our <i>NUBCS</i> members an exclusive grant of up to £10,000, 
+                which could <i>cover up to 80% of your program fees</i> (covers accommodation, meals, and training from 2 - 36 weeks). 
+                Use our unique grant code <b><i>NCS-BCSOC</i></b> to access the grant fund.
+                <br/><br/>
                 <i>With thanks,</i><br/><b>The Beach Cleaning Society</b><br/>
             </>
         )
