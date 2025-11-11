@@ -82,50 +82,52 @@ const Home = () => {
                         </section>
                     </div>
 
-                    {/* About Us & Instagram Section */}
-                    <section className="grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-                        <div className="flex flex-col space-y-5">
-                            <SectionHeader>About Us</SectionHeader>
-                            <p className="text-left text-base leading-relaxed md:text-lg">
-                                Welcome to the Beach Cleaning Society Website! We are a passionate group of environmental activists dedicated to preserving and protecting the beautiful Tyne and Wear coastline.
-                            </p>
-                            <p className="text-left text-base leading-relaxed md:text-lg">
-                                Our mission is to organise regular beach cleaning events to reduce waste and protect marine ecosystems from harmful pollution. We aim to hold at least two beach cleaning meetings each semester, and we always hope for sunny weather!
-                            </p>
-                            <div className="my-4 rounded-lg border border-accent/50 bg-accent/10 p-5 text-left text-base leading-relaxed md:p-6 md:text-lg">
-                                Each location is conveniently accessible by Metro, making it easy for everyone to participate. Membership costs <strong className="font-semibold text-accent">only £5</strong> - join us and help make a real difference!
+                    <div className="w-full max-w-6xl rounded-2xl border border-accent/30 bg-primary/80 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8 lg:p-12">
+                        <section className="grid w-full grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+                            <div className="flex flex-col space-y-5">
+                                <SectionHeader>About Us</SectionHeader>
+                                <p className="text-left text-base leading-relaxed md:text-lg">
+                                    Welcome to the Beach Cleaning Society Website! We are a passionate group of environmental activists dedicated to preserving and protecting the beautiful Tyne and Wear coastline.
+                                </p>
+                                <p className="text-left text-base leading-relaxed md:text-lg">
+                                    Our mission is to organise regular beach cleaning events to reduce waste and protect marine ecosystems from harmful pollution. We aim to hold at least two beach cleaning meetings each semester, and we always hope for sunny weather!
+                                </p>
+                                <div className="my-4 rounded-lg border border-accent/50 p-5 text-left text-base leading-relaxed md:p-6 md:text-lg">
+                                    Each location is conveniently accessible by Metro, making it easy for everyone to participate. Membership costs <strong className="font-semibold text-accent">only £5</strong> - join us and help make a real difference!
+                                </div>
                             </div>
-                        </div>
-                        <div className="mx-auto w-full max-w-sm">
-                            <InstagramEmbed url="https://www.instagram.com/beachcleaningsociety__ncl" width="100%" />
-                        </div>
-                    </section>
+                            <div className="mx-auto w-full max-w-sm">
+                                <InstagramEmbed url="https://www.instagram.com/beachcleaningsociety__ncl" width="100%" />
+                            </div>
+                        </section>
+                    </div>
 
-                    {/* Our Story Section - now a two-column layout on desktop */}
-                    <section className="grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-                        <div className="relative order-last lg:order-first">
-                            <img
-                                src={CoverImage}
-                                alt="Beach clean committee"
-                                className="h-auto w-full rounded-2xl border-4 border-accent shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:rotate-[-1deg] md:border-8"
-                            />
-                        </div>
-                        <div className="flex flex-col space-y-5">
-                            <SectionHeader>Our Story</SectionHeader>
-                            <p className="text-left text-base leading-relaxed md:text-lg">
-                                It all began with a simple yet powerful idea: to protect the stunning coastline of Tyne and Wear while creating pristine, enjoyable beaches for both wildlife and people.
-                            </p>
-                            <p className="text-left text-base leading-relaxed md:text-lg">
-                                What started as a small initiative quickly grew into a vibrant university society driven by shared passion for sustainability and community action.
-                            </p>
-                            <div className="my-4 rounded-lg border border-accent/50 bg-accent/10 p-5 text-left text-base leading-relaxed md:p-6 md:text-lg">
-                                But we're more than just beach cleans! Our society is all about fostering connections and having fun. We host a variety of exciting socials, from the hilarity of Pub Golf to the cozy chaos of Pajama Bowling nights. Whether you’re passionate about the environment or just looking to meet new friends, our society offers the perfect mix of purpose and fun.
+                    <div className="w-full max-w-6xl rounded-2xl border border-accent/30 bg-primary/80 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8 lg:p-12">
+                        <section className="grid w-full grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+                            <div className="relative order-last lg:order-first">
+                                <img
+                                    src={CoverImage}
+                                    alt="Beach clean committee"
+                                    className="h-auto w-full rounded-2xl border-4 border-accent shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:rotate-[-1deg] md:border-8"
+                                />
                             </div>
-                            <div className="pt-4">
-                                <JoinButton />
+                            <div className="flex flex-col space-y-5">
+                                <SectionHeader>Our Story</SectionHeader>
+                                <p className="text-left text-base leading-relaxed md:text-lg">
+                                    It all began with a simple yet powerful idea: to protect the stunning coastline of Tyne and Wear while creating pristine, enjoyable beaches for both wildlife and people.
+                                </p>
+                                <p className="text-left text-base leading-relaxed md:text-lg">
+                                    What started as a small initiative quickly grew into a vibrant university society driven by shared passion for sustainability and community action.
+                                </p>
+                                <div className="my-4 rounded-lg border border-accent/50 p-5 text-left text-base leading-relaxed md:p-6 md:text-lg">
+                                    But we’re more than just beach cleans! Our society is all about fostering connections and having fun. We host a variety of exciting socials, from the hilarity of Pub Golf to the cozy chaos of Pajama Bowling nights. Whether you’re passionate about the environment or just looking to meet new friends, our society offers the perfect mix of purpose and fun.
+                                </div>
+                                <div className="pt-4">
+                                    <JoinButton />
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
