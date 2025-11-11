@@ -7,7 +7,7 @@ import { NavbarContainer,
 } from "./components/home"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import WhatsOn from "./templates/whatsOn";
+import WhatsOn from "./templates/whatsOn.tsx";
 import Home from "./templates/home";
 import Footer from "./templates/footer";
 import LogoImg from "./assets/NUBCS_Logo.png";
