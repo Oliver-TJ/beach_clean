@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import backgroundImage from "../assets/bg_image.jpg";
-import { createGlobalStyle } from "styled-components";
+import React from 'react';
+import styled, { createGlobalStyle } from "styled-components";
 import YouTube from "react-youtube";
+import backgroundImage from "../assets/bg_image.jpg";
 
 const colors = {
     primary: "#003a65",
@@ -25,34 +25,15 @@ export const NavbarContainer = styled.nav`
   }
 `;
 
-export const HeaderBox = styled.div`
-  display: inline-flex;
-  justify-content: center;
-  padding: 1.25rem 2.5rem;
-  font-size: 1.1rem;
-  color: ${colors.accent};
-  background: ${colors.primary};
-  box-shadow: 6px 6px 0 ${colors.accent};
-  transform: skewX(-15deg);
-  transition: transform 0.3s ease;
-  margin: 2rem 0;
-
-  h2 {
-    margin: 0;
-    transform: skewX(15deg);
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem 1.5rem;
-    transform: skewX(-8deg);
-    margin: 1.5rem 0;
-    
-    h2 {
-      transform: skewX(8deg);
-      font-size: 1.2rem;
-    }
-  }
-`;
+export const HeaderBox = ({ children, mobile }) => (
+    <div className={`
+        inline-flex justify-center bg-primary px-10 py-5 text-lg text-accent 
+        shadow-[6px_6px_0_#CBBD93] transition-transform duration-300 ease-in-out 
+        [-skew-x-15deg] md:[-skew-x-8deg] md:px-6 md:py-4 md:text-base
+    `}>
+        <h2 className="m-0 [skew-x-15deg] md:[skew-x-8deg]">{children}</h2>
+    </div>
+);
 
 export const Section = styled.section`
   padding: 2rem 1em;
@@ -63,25 +44,14 @@ export const Section = styled.section`
   }
 `;
 
-
-export const DescDiv = styled.div`
-  font-size: 1.1rem;
-  color: ${colors.white};
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-
-  strong {
-    color: ${colors.accent};
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-  }
-`;
+export const DescDiv = ({ children, highlight }) => (
+    <div className={`
+        text-justify text-lg leading-relaxed text-white 
+        ${highlight ? 'my-8 rounded-lg bg-accent/10 p-6 md:my-6 md:p-4' : 'mb-6 md:mb-5'}
+    `}>
+        {children}
+    </div>
+);
 
 
 export const TextDiv = styled.div`
@@ -266,20 +236,16 @@ export const MenuIcon = styled.div`
   }
 `;
 
-export const EventLink = styled.a`
-  color: #CBBD93;
-  text-decoration: underline;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    color: #003a65;
-    text-decoration: none;
-    background-color: #CBBD93;
-    padding: 1px 2px;
-    border-radius: 4px;
-  }
-`;
+export const EventLink = ({ href, children }) => (
+    <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-bold text-accent underline transition-all duration-300 ease-in-out hover:rounded-md hover:bg-accent hover:p-1 hover:text-primary hover:no-underline"
+    >
+        {children}
+    </a>
+);
 
 export const PageHeader = styled.h1`
   color: #CBBD93;
