@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import SocietyLogo from "../assets/NUBCS_Logo.png";
 
 const RubbishCounter = () => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [animateIn, setAnimateIn] = useState(false);
     const [displayValue, setDisplayValue] = useState("0.0");
 
@@ -9,7 +11,7 @@ const RubbishCounter = () => {
         total: "176.5",
         latestEvent: {
             location: "Long Sands Beach, Tynemouth",
-            date: "2025-10-11",
+            date: "2025-11-10",
             attendees: 58,
             collected: "23kg",
             distance: "2.6km"
@@ -17,6 +19,14 @@ const RubbishCounter = () => {
     };
 
     const finalValue = cleanupData.total;
+
+    // Effect to detect mobile screen size
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768); // Tailwind's 'md' breakpoint
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => setAnimateIn(true), 300);
@@ -49,35 +59,52 @@ const RubbishCounter = () => {
         }
     }, [animateIn, finalValue]);
 
+    // Define interaction handlers based on device type
+    const interactionProps = isMobile
+        ? { onClick: () => setIsActive(prevState => !prevState) }
+        : {
+            onMouseEnter: () => setIsActive(true),
+            onMouseLeave: () => setIsActive(false),
+          };
+
     return (
         <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            {...interactionProps}
             className={`
-                relative z-50 flex w-[90%] flex-col items-center rounded-lg bg-primary p-5 text-center text-white
-                shadow-[8px_8px_0_#CBBD93] transition-all duration-500 ease-in-out lg:flex-row lg:p-5
+                group relative z-50 flex w-full max-w-6xl cursor-pointer flex-col items-center gap-4 rounded-xl 
+                border border-accent/30 bg-primary/80 p-6 text-center text-white shadow-2xl backdrop-blur-sm 
+                transition-all duration-500 ease-in-out
+                md:flex-row md:justify-between md:gap-8
+                active:brightness-125
                 ${animateIn ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}
             `}
         >
-            <div className="flex flex-col items-center lg:flex-row lg:flex-wrap">
-                <div className="mb-2 p-2 text-2xl font-bold tracking-wider lg:mb-0 lg:mr-4 lg:p-4 lg:text-3xl">
-                    Amount Cleaned (kg):
+            <img 
+                src={SocietyLogo} 
+                alt="Society Logo" 
+                className="h-auto w-full max-w-[200px] md:max-w-[280px]" 
+            />
+            
+            <div className="flex flex-col items-center gap-2">
+                <div className="text-xl font-bold tracking-wider text-accent md:text-2xl">
+                    Total Cleaned (kg):
                 </div>
+                
                 <div className="flex flex-wrap items-end justify-center">
                     {displayValue.split('').map((digit, index) =>
                         digit === '.' ? (
-                            <div key={index} className="self-end bg-transparent px-0.5 py-1 text-4xl font-bold text-white animate-glow [animation-delay:0.75s]">
+                            <div key={index} className="self-end bg-transparent px-1 py-1 text-4xl font-bold text-white animate-glow [animation-delay:0.75s] md:text-5xl">
                                 .
                             </div>
                         ) : (
                             <div
                                 key={index}
-                                className="
-                                    m-1 rounded-md bg-black p-2.5 text-4xl font-bold text-white shadow-[0px_3px_0px_rgba(0,0,0,0.3)]
-                                    animate-float animate-pulse animate-glow hover:animate-pause hover:-translate-y-0.5
-                                    lg:p-3 lg:text-5xl
+                                className={`
+                                    m-1 rounded-md bg-black/50 p-2.5 text-4xl font-bold text-white shadow-md transition-all duration-300
+                                    animate-glow md:p-3 md:text-5xl
                                     odd:animation-delay-[0.5s] [&:nth-child(3n)]:animation-delay-[1s]
-                                "
+                                    ${isActive ? '-translate-y-1.5 scale-110 shadow-xl shadow-accent/20' : ''}
+                                `}
                             >
                                 {digit}
                             </div>
@@ -88,23 +115,25 @@ const RubbishCounter = () => {
 
             <div
                 className={`
-                    absolute top-[110%] left-1/2 z-[100] w-[250px] -translate-x-1/2 rounded-lg border-2 border-accent
-                    bg-primary p-5 text-left leading-relaxed text-accent shadow-lg transition-all duration-300
-                    [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)]
+                    absolute top-[105%] left-1/2 z-[100] w-[280px] -translate-x-1/2 rounded-lg border border-accent/30
+                    bg-primary p-5 text-left leading-relaxed text-accent shadow-2xl
+                    transition-all duration-300 ease-in-out
                     after:absolute after:bottom-full after:left-1/2 after:-ml-2.5 after:border-[10px]
                     after:border-solid after:border-b-accent after:border-l-transparent after:border-r-transparent after:border-t-transparent
                     after:content-['']
-                    ${isHovered ? 'visible opacity-100' : 'invisible opacity-0'}
+                    ${isActive ? 'visible scale-100 opacity-100' : 'invisible scale-95 opacity-0'}
                 `}
             >
-                <h3 className="mb-3 border-b-2 border-accent pb-2 text-center text-xl font-bold">
+                <h3 className="mb-4 border-b-2 border-accent/50 pb-2 text-center text-xl font-bold text-white">
                     Latest Cleanup
                 </h3>
-                <p className="my-2 text-base">📍 {cleanupData.latestEvent.location}</p>
-                <p className="my-2 text-base">📅 {new Date(cleanupData.latestEvent.date).toLocaleDateString()}</p>
-                <p className="my-2 text-base">👥 {cleanupData.latestEvent.attendees} volunteers</p>
-                <p className="my-2 text-base">🗑️ {cleanupData.latestEvent.collected} collected</p>
-                <p className="my-2 text-base">📏 {cleanupData.latestEvent.distance} cleaned</p>
+                <div className="space-y-3 text-base">
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📍</span> {cleanupData.latestEvent.location}</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📅</span> {new Date(cleanupData.latestEvent.date).toLocaleDateString()}</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">👥</span> {cleanupData.latestEvent.attendees} volunteers</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">🗑️</span> {cleanupData.latestEvent.collected} collected</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📏</span> {cleanupData.latestEvent.distance} cleaned</p>
+                </div>
             </div>
         </div>
     );
