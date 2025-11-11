@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import SocietyLogo from "../assets/NUBCS_Logo.png";
 
 const RubbishCounter = () => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [animateIn, setAnimateIn] = useState(false);
     const [displayValue, setDisplayValue] = useState("0.0");
-    
+
     const cleanupData = {
         total: "176.5",
         latestEvent: {
             location: "Long Sands Beach, Tynemouth",
-            date: "10-11-2025",
+            date: "2025-11-10",
             attendees: 58,
             collected: "23kg",
             distance: "2.6km"
@@ -18,33 +19,34 @@ const RubbishCounter = () => {
     };
 
     const finalValue = cleanupData.total;
-    
+
+    // Effect to detect mobile screen size
     useEffect(() => {
-        // Trigger animation after component mounts
-        const timer = setTimeout(() => {
-            setAnimateIn(true);
-        }, 300);
-        
+        const checkMobile = () => setIsMobile(window.innerWidth < 768); // Tailwind's 'md' breakpoint
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setAnimateIn(true), 300);
         return () => clearTimeout(timer);
     }, []);
-    
+
     useEffect(() => {
         if (animateIn) {
-            // Create count-up animation from 0 to the final value
             const startValue = 0;
             const endValue = parseFloat(finalValue);
-            const duration = 2000; // 2 seconds
+            const duration = 2000;
             const frameRate = 60;
             const totalFrames = (duration / 1000) * frameRate;
             const increment = endValue / totalFrames;
-            
             let currentValue = startValue;
             let frame = 0;
-            
+
             const counter = setInterval(() => {
                 frame++;
                 currentValue += increment;
-                
                 if (frame <= totalFrames) {
                     setDisplayValue(currentValue.toFixed(1));
                 } else {
@@ -52,242 +54,89 @@ const RubbishCounter = () => {
                     clearInterval(counter);
                 }
             }, 2000 / frameRate);
-            
+
             return () => clearInterval(counter);
         }
     }, [animateIn, finalValue]);
 
-    return (
-        <Container 
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            $animateIn={animateIn}
-        >
-            <CounterContainer>
-                <Title>Amount Cleaned (kg):</Title>
-                <DigitsContainer>
-                    {displayValue.split('').map((digit, index) => (
-                        digit === '.' 
-                            ? <DecimalPoint key={index}>.</DecimalPoint> 
-                            : <Counter key={index}>{digit}</Counter>
-                    ))}
-                </DigitsContainer>
-            </CounterContainer>
+    // Define interaction handlers based on device type
+    const interactionProps = isMobile
+        ? { onClick: () => setIsActive(prevState => !prevState) }
+        : {
+            onMouseEnter: () => setIsActive(true),
+            onMouseLeave: () => setIsActive(false),
+          };
 
-            <Tooltip $isHovered={isHovered}>
-                <h3>Latest Cleanup</h3>
-                <p>📍 {cleanupData.latestEvent.location}</p>
-                <p>📅 {new Date(cleanupData.latestEvent.date).toLocaleDateString()}</p>
-                <p>👥 {cleanupData.latestEvent.attendees} volunteers</p>
-                <p>🗑️ {cleanupData.latestEvent.collected} collected</p>
-                <p>📏 {cleanupData.latestEvent.distance} cleaned</p>
-            </Tooltip>
-        </Container>
+    return (
+        <div
+            {...interactionProps}
+            className={`
+                group relative z-50 flex w-full max-w-6xl cursor-pointer flex-col items-center gap-4 rounded-xl 
+                border border-accent/30 bg-primary/80 p-6 text-center text-white shadow-2xl backdrop-blur-sm 
+                transition-all duration-500 ease-in-out
+                md:flex-row md:justify-between md:gap-8
+                active:brightness-125
+                ${animateIn ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}
+            `}
+        >
+            <img 
+                src={SocietyLogo} 
+                alt="Society Logo" 
+                className="h-auto w-full max-w-[200px] md:max-w-[280px]" 
+            />
+            
+            <div className="flex flex-col items-center gap-2">
+                <div className="text-xl font-bold tracking-wider text-accent md:text-2xl">
+                    Total Cleaned (kg):
+                </div>
+                
+                <div className="flex flex-wrap items-end justify-center">
+                    {displayValue.split('').map((digit, index) =>
+                        digit === '.' ? (
+                            <div key={index} className="self-end bg-transparent px-1 py-1 text-4xl font-bold text-white animate-glow [animation-delay:0.75s] md:text-5xl">
+                                .
+                            </div>
+                        ) : (
+                            <div
+                                key={index}
+                                className={`
+                                    m-1 rounded-md bg-black/50 p-2.5 text-4xl font-bold text-white shadow-md transition-all duration-300
+                                    animate-glow md:p-3 md:text-5xl
+                                    odd:animation-delay-[0.5s] [&:nth-child(3n)]:animation-delay-[1s]
+                                    ${isActive ? '-translate-y-1.5 scale-110 shadow-xl shadow-accent/20' : ''}
+                                `}
+                            >
+                                {digit}
+                            </div>
+                        )
+                    )}
+                </div>
+            </div>
+
+            <div
+                className={`
+                    absolute top-[105%] left-1/2 z-[100] w-[280px] -translate-x-1/2 rounded-lg border border-accent/30
+                    bg-primary p-5 text-left leading-relaxed text-accent shadow-2xl
+                    transition-all duration-300 ease-in-out
+                    after:absolute after:bottom-full after:left-1/2 after:-ml-2.5 after:border-[10px]
+                    after:border-solid after:border-b-accent after:border-l-transparent after:border-r-transparent after:border-t-transparent
+                    after:content-['']
+                    ${isActive ? 'visible scale-100 opacity-100' : 'invisible scale-95 opacity-0'}
+                `}
+            >
+                <h3 className="mb-4 border-b-2 border-accent/50 pb-2 text-center text-xl font-bold text-white">
+                    Latest Cleanup
+                </h3>
+                <div className="space-y-3 text-base">
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📍</span> {cleanupData.latestEvent.location}</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📅</span> {new Date(cleanupData.latestEvent.date).toLocaleDateString()}</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">👥</span> {cleanupData.latestEvent.attendees} volunteers</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">🗑️</span> {cleanupData.latestEvent.collected} collected</p>
+                    <p className="flex items-center"><span className="mr-3 w-5 text-center">📏</span> {cleanupData.latestEvent.distance} cleaned</p>
+                </div>
+            </div>
+        </div>
     );
 };
-
-
-// Styled components
-const floatAnimation = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-`;
-
-// Add a separate animation for mobile
-const floatAnimationMobile = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-`;
-
-const pulseAnimation = keyframes`
-  0% { box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3); }
-  50% { box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); }
-  100% { box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3); }
-`;
-
-const glowAnimation = keyframes`
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.3); }
-  100% { filter: brightness(1); }
-`;
-
-// Additional animation that doesn't affect transform
-const shadowPulseAnimation = keyframes`
-  0% { box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3); }
-  50% { box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); }
-  100% { box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3); }
-`;
-
-const Tooltip = styled.div.attrs(props => ({
-    $isHovered: props.$isHovered,
-}))`
-  position: absolute;
-  top: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #003a65;
-  color: #CBBD93;
-  padding: 1.2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  z-index: 100;
-  text-align: left;
-  line-height: 1.6;
-  opacity: ${props => props.$isHovered ? 1 : 0};
-  visibility: ${props => props.$isHovered ? 'visible' : 'hidden'};
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  pointer-events: none;
-  border: 2px solid #CBBD93;
-
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #CBBD93 transparent;
-  }
-
-  h3 {
-    margin: 0 0 0.8rem 0;
-    border-bottom: 2px solid #CBBD93;
-    padding-bottom: 0.5rem;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
-  p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-  
-  @media only screen and (max-width: 900px) {
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 300px;
-    left: 50%;
-  }
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  background-color: #003a65;
-  box-shadow: 8px 8px 0 #CBBD93;
-  transform: ${props => props.$animateIn ? 'translateY(0)' : 'translateY(20px)'};
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  z-index: 100;
-  position: relative;
-  border-radius: 8px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  
-  @media only screen and (max-width: 900px) {
-    flex-direction: column;
-    justify-content: center;
-    padding: 15px 30px;
-    transform: ${props => props.$animateIn ? 'translateY(0)' : 'translateY(20px)'};
-  }
-`;
-
-const Title = styled.div`
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-right: 1rem;
-  padding: 1rem;
-  
-  @media only screen and (max-width: 900px) {
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-`;
-
-const DecimalPoint = styled.div`
-  font-size: 2.7rem;
-  font-weight: bold;
-  padding: 0.4rem 0;
-  margin: 0 0.1rem;
-  color: white;
-  align-self: flex-end;
-  background-color: transparent;
-  position: relative;
-  z-index: 1;
-  
-  /* Add a subtle glow animation that doesn't interfere with neighbors */
-  animation: ${glowAnimation} 3s ease-in-out infinite;
-  animation-delay: 0.75s;
-`;
-
-const Counter = styled.div`
-  font-size: 2.7rem;
-  font-weight: bold;
-  padding: 0.6rem 0.8rem;
-  margin: 0 0.2rem;
-  border-radius: 6px;
-  background-color: black;
-  color: white;
-  box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-  
-  /* Idle animations with skew removed */
-  animation: ${floatAnimation} 3s ease-in-out infinite,
-             ${pulseAnimation} 3s ease-in-out infinite,
-             ${glowAnimation} 3s ease-in-out infinite;
-  /* Stagger animation timing for each digit */
-  &:nth-child(odd) {
-    animation-delay: 0.5s;
-  }
-  &:nth-child(3n) {
-    animation-delay: 1s;
-  }
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
-    /* Pause animations on hover */
-    animation-play-state: paused;
-  }
-  
-  @media only screen and (max-width: 900px) {
-    font-size: 2.2rem;
-    padding: 0.5rem 0.6rem;
-    /* Use the mobile animation instead */
-    animation: ${floatAnimationMobile} 3s ease-in-out infinite,
-               ${pulseAnimation} 3s ease-in-out infinite,
-               ${glowAnimation} 3s ease-in-out infinite;
-    
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
-`;
-
-const CounterContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
-  @media only screen and (max-width: 900px) {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-`;
-
-const DigitsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-left: 0.5rem;
-`;
 
 export default RubbishCounter;
