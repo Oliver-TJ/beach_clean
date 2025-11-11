@@ -22,7 +22,7 @@ A React-based platform promoting beach cleaning initiatives and community engage
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19 + React Router
-- **Styling**: Styled Components
+- **Styling**: Tailwind CSS v3
 - **Social Media**: `react-social-media-embed`
 - **Hosting**: AWS Amplify
 - **CI/CD**: GitHub Actions
