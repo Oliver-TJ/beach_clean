@@ -37,6 +37,8 @@ const events = [
                 We will be meeting at the <b>Dove Marine Laboratory at 12:45pm</b>. All equipment will be provided, so just bring your enthusiasm! From there, we will make our way along the beautiful coast to King Edwards Bay, cleaning as we go.
                 <br/><br/>
                 This is a fantastic opportunity to protect our marine environment, meet like-minded people from across the university, and make a real difference. We can't wait to see you there!
+                <br/><br/>
+                <b>Even if you aren't a member of our society or any of those listed, if you're a student at Newcastle University you can sign up to join us via the NUSU website: <EventLink href="https://nusu.co.uk/events/id/2749-beach-clean-15th-november">Sign up here!</EventLink></b>
             </>
         )
     },
