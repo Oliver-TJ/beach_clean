@@ -11,7 +11,7 @@ const RubbishCounter = () => {
         total: "176.5",
         latestEvent: {
             location: "Long Sands Beach, Tynemouth",
-            date: "2025-11-10",
+            date: "2025-10-11",
             attendees: 58,
             collected: "23kg",
             distance: "2.6km"
