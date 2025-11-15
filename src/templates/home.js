@@ -1,7 +1,7 @@
 import React from "react";
 import { JoinButton } from "../components/join_button";
 import { InstagramEmbed } from "react-social-media-embed";
-import RubbishCounter from "../components/rubbish_counter";
+import RubbishCounter from "../components/rubbish_counter.tsx";
 import "./home.css";
 import CoverImage from "../assets/cover_img.jpg";
 import backgroundImage from "../assets/bg_image.jpg";
