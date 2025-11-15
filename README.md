@@ -1,6 +1,7 @@
 # 🌊 Beach Cleaning Society Website
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)](https://react.dev/)
+[![Sanity](https://img.shields.io/badge/Sanity-F03E2F?style=for-the-badge&logo=sanity)](https://www.sanity.io/)
 [![AWS Amplify](https://img.shields.io/badge/AWS_Amplify-FF9900?style=for-the-badge&logo=amazon-aws)](https://aws.amazon.com/amplify/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -17,15 +18,17 @@ A React-based platform promoting beach cleaning initiatives and community engage
 - **Events Calendar** with upcoming cleanups and socials
 - **Instagram Integration** for latest updates
 - **Responsive Design** for all devices
-- **AWS Amplify Hosting** with automatic HTTPS
+- **Automatic CI/CD** pipeline for frontend and backend
+- **Dynamic Events Page** managed via a headless CMS
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19 + React Router
+- **Backend (CMS)**: Sanity.io
 - **Styling**: Tailwind CSS v3
 - **Social Media**: `react-social-media-embed`
-- **Hosting**: AWS Amplify
-- **CI/CD**: GitHub Actions
+- **Hosting**: AWS Amplify (Frontend), Sanity (Studio)
+- **CI/CD**: GitHub Actions (Frontend), Sanity (Backend)
 
 ## 📦 Installation
 
