@@ -7,8 +7,15 @@ const LocalNewsWidget = () => {
     useEffect(() => {
         const fetchLocalNews = async () => {
             try {
+                const locations = '("North East England" OR Newcastle Upon Tyne OR Sunderland OR Durham OR Tynemouth OR "Whitley Bay" OR Cullercoats OR "North Shields" OR "South Shields" OR Northumberland OR "Tyne and Wear" OR "Lindisfarne" OR "England" OR "UK")';
+                const topics = '(coast OR sea OR beach OR ocean OR pollution OR environment OR marine)';
+                const exclusions = 'AND NOT (Australia OR NSW OR "New South Wales" OR "Florida")';
+                const query = `${locations} AND ${topics} ${exclusions}`;
+                const encodedQuery = encodeURIComponent(query);
+
+
                 const response = await fetch(
-                    `https://content.guardianapis.com/search?q=(North%20East%20England)%20AND%20(coast%20OR%20sea%20OR%20environment)&tag=environment/environment&order-by=newest&page-size=3&api-key=${process.env.REACT_APP_GUARDIAN_KEY}`
+                    `https://content.guardianapis.com/search?q=${encodedQuery}&tag=environment/environment&order-by=relevance&page-size=3&api-key=${process.env.REACT_APP_GUARDIAN_KEY}`
                 );
 
                 const data = await response.json();
