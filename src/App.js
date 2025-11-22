@@ -8,6 +8,7 @@ import { NavbarContainer,
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import WhatsOn from "./templates/whatsOn.tsx";
+import NewsPage from "./templates/news.tsx";
 import Home from "./templates/home";
 import Footer from "./templates/footer";
 import LogoImg from "./assets/NUBCS_Logo.png";
@@ -37,6 +38,9 @@ const Navbar = () => {
                 <NavLink>
                     <Link to="/whats-on"><b>What's on?</b></Link>
                 </NavLink>
+                <NavLink>
+                    <Link to="/news"><b>News</b></Link>
+                </NavLink>
             </NavLinks>
         </NavbarContainer>
     )
@@ -49,6 +53,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/whats-on" element={<WhatsOn />} />
+            <Route path="/news" element={<NewsPage />} />
         </Routes>
         <Footer/>
     </Router>
