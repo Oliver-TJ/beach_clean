@@ -2,6 +2,7 @@ import React from "react";
 import { JoinButton } from "../components/join_button";
 import { InstagramEmbed } from "react-social-media-embed";
 import RubbishCounter from "../components/rubbish_counter.tsx";
+import LocalNewsWidget from "../components/LocalNewsWidget.js";
 import "./home.css";
 import CoverImage from "../assets/cover_img.jpg";
 import backgroundImage from "../assets/bg_image.jpg";
@@ -80,6 +81,18 @@ const Home = () => {
                                 <i className="mt-4 inline-block text-sm text-accent">GVI Travel offer environmental protection and community programs</i>
                             </div>
                         </section>
+                    </div>
+
+                    <div className="w-full max-w-6xl rounded-2xl border border-accent/30 bg-primary/80 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8 lg:p-12">
+                        <div className="flex flex-col space-y-6 text-center">
+                            <div className="flex justify-center">
+                                <SectionHeader>Local Coastal News</SectionHeader>
+                            </div>
+                            <p className="mx-auto max-w-2xl text-base text-white/90 md:text-lg">
+                                Keeping an eye on our local environment. Here are the latest headlines affecting the UK coast.
+                            </p>
+                            <LocalNewsWidget />
+                        </div>
                     </div>
 
                     <div className="w-full max-w-6xl rounded-2xl border border-accent/30 bg-primary/80 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8 lg:p-12">
